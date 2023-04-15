@@ -103,7 +103,7 @@ export default function Home() {
             AI-Upscaled Wallpapers
           </h4>
           <a
-            href="download link"
+            href="https://play.google.com/store/apps/details?id=com.valpapers"
             className={styles.card}
             target="_blank"
             rel="noopener noreferrer"
