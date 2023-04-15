@@ -1,20 +1,52 @@
+// pages/_app.js
+import { useEffect } from "react";
+import { Inter } from "next/font/google";
+import { SlideshowLightbox, initLightboxJS } from "lightbox.js-react";
+
 import Head from "next/head";
 import Image from "next/image";
-import { Inter } from "next/font/google";
 import localFont from "next/font/local";
 
 import styles from "@/styles/Home.module.css";
-// pages/_app.js
+import "lightbox.js-react/dist/index.css";
 
 // Font files can be colocated inside of `pages`
 const valFont = localFont({ src: "./font.ttf" });
 const inter = Inter({ subsets: ["latin"] });
 
+const lightboxKey = process.env.LIGHTBOX_KEY;
+
+const images = [
+  {
+    src: "http://cdn.valpapers.tech/assets/1.png",
+    alt: "Valorant Wallpapers",
+  },
+  {
+    src: "http://cdn.valpapers.tech/assets/2.png",
+    alt: "Valorant Player Cards",
+  },
+  {
+    src: "http://cdn.valpapers.tech/assets/3.png",
+    alt: "AI Upcaling",
+  },
+  {
+    src: "http://cdn.valpapers.tech/assets/4.png",
+    alt: "Clean & Fluid Design",
+  },
+  {
+    src: "http://cdn.valpapers.tech/assets/5.png",
+    alt: "High Quality Wallpapers",
+  },
+];
+
 export default function Home() {
+  useEffect(() => {
+    initLightboxJS(lightboxKey, "individual");
+  });
   return (
     <>
       <Head>
-        <title>Valpapers</title>
+        <title>Valpapers - AI Upscaled Wallpapers</title>
         <meta name="title" content="Valpapers" />
         <meta
           name="description"
@@ -22,7 +54,7 @@ export default function Home() {
         />
         <meta name="keywords" content="wallpapers, valorant, valpapers" />
         <meta name="robots" content="index, follow" />
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="language" content="English" />
 
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -92,6 +124,17 @@ export default function Home() {
                 priority
               />
             </a>
+            <a
+              href="https://github.com/roeintheglasses"
+              className={styles.card}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ textAlign: "end" }}
+            >
+              <code className={styles.code}>
+                Made with 💖by @roeintheglasses
+              </code>
+            </a>
           </div>
         </div>
 
@@ -112,24 +155,76 @@ export default function Home() {
               Download <span>-&gt;</span>
             </p>
           </a>
+          <div>
+            <SlideshowLightbox
+              lightboxIdentifier="lightbox1"
+              framework="next"
+              images={images}
+              showThumbnails="true"
+            >
+              <div className={styles.imageGallary}>
+                {images.map((image, index) => (
+                  <Image
+                    key={index}
+                    src={image.src}
+                    alt={image.alt}
+                    height={400}
+                    width={200}
+                    data-lightboxjs="lightbox1"
+                    quality={80}
+                    style={{ borderRadius: "10px", backgroundColor: "#bbb" }}
+                    blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAAEsCAYAAACG+vy+AAACO0lEQVR42u3TMQEAMAgAoBl0JraTFvD0hA5E/6wHrEIQEAQEAUFAEBAEBAFBQBAQBBAEBAFBQBAQBAQBQUAQEAQEEQQEAUFAEBAEBAFBQBAQBAQBBAFBQBAQBAQBQUAQEAQEAUEAQUAQEAQEAUFAEBAEBAFBAEFAEBAEBAFBQBAQBAQBQUAQQBAQBAQBQUAQEAQEAUFAEEAQEAQEAUFAEBAEBAFBQBAQBBAEBAFBQBAQBAQBQUAQEAQEEQQEAUFAEBAEBAFBQBAQBAQBBAFBQBAQBAQBQUAQEAQEAUEEAUFAEBAEBAFBQBAQBAQBQQBBQBAQBAQBQUAQEAQEAUFAEEAQEAQEAUFAEBAEBAFBQBBAEBAEBAFBQBAQBAQBQUAQEAQQBAQBQUAQEAQEAUFAEBAEEAQEAUFAEBAEBAFBQBAQBAQBBAFBQBAQBAQBQUAQEAQEAUEEAUFAEBAEBAFBQBAQBAQBQQBBQBAQBAQBQUAQEAQEAUFAEEFAEBAEBAFBQBAQBAQBQUAQQBAQBAQBQUAQEAQEAUFAEBAEEAQEAUFAEBAEBAFBQBAQBBAEBAFBQBAQBAQBQUAQEAQEAQQBQUAQEAQEAUFAEBAEBAEEAUFAEBAEBAFBQBAQBAQBQQBBQBAQBAQBQUAQEAQEAUFAEEFAEBAEBAFBQBAQBAQBQUAQQBAQBAQBQUAQEAQEAUFAEBBEEBAEBAFBQBAQBAQBQUAQEAQQBAQBQUAQEAQEAUFAEBAEBAEEAUHgzgCBvvZTkIgN/AAAAABJRU5ErkJggg==
+                    "
+                    placeholder="blur"
+                  />
+                ))}
+              </div>
+            </SlideshowLightbox>
+          </div>
         </div>
 
         <div className={styles.grid}>
           {/* <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+            href="/about-us"
             className={styles.card}
             target="_blank"
             rel="noopener noreferrer"
           >
             <h2 className={inter.className}>
-              Deploy <span>-&gt;</span>
+              About Valpapers <span>-&gt;</span>
             </h2>
             <p className={inter.className}>
-              Instantly deploy your Next.js site to a shareable URL
-              with&nbsp;Vercel.
+              Get a gist of the dev behind the crazy "AI" upscaling
             </p>
           </a> */}
+          <a
+            href="/privacy-policy"
+            className={styles.card}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <h2 className={inter.className}>
+              Privacy Policy <span>-&gt;</span>
+            </h2>
+            <p className={inter.className}>
+              Yup, we have one of those too. Read it here. ( ͡° ͜ʖ ͡°)
+            </p>
+          </a>
+          <a
+            href="https://play.google.com/store/apps/details?id=com.valpapers"
+            className={styles.card}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <h2 className={inter.className}>
+              Download <span>-&gt;</span>
+            </h2>
+            <p className={inter.className}>
+              Because we both know, one download link is not enough.
+            </p>
+          </a>
         </div>
+
         <footer className={styles.footer}>
           <a
             href="https://github.com/roeintheglasses"
