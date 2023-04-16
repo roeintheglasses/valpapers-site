@@ -175,6 +175,7 @@ export default function Home() {
                     style={{ borderRadius: "10px", backgroundColor: "#bbb" }}
                     blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP81di4CQAHKQKwOywNuAAAAABJRU5ErkJggg=="
                     placeholder="blur"
+                    priority={true}
                   />
                 ))}
               </div>
