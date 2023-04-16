@@ -18,23 +18,23 @@ const lightboxKey = process.env.LIGHTBOX_KEY;
 
 const images = [
   {
-    src: "http://cdn.valpapers.tech/assets/1.png",
+    src: "http://cdn.valpapers.tech/assets/1.webp",
     alt: "Valorant Wallpapers",
   },
   {
-    src: "http://cdn.valpapers.tech/assets/2.png",
+    src: "http://cdn.valpapers.tech/assets/2.webp",
     alt: "Valorant Player Cards",
   },
   {
-    src: "http://cdn.valpapers.tech/assets/3.png",
+    src: "http://cdn.valpapers.tech/assets/3.webp",
     alt: "AI Upcaling",
   },
   {
-    src: "http://cdn.valpapers.tech/assets/4.png",
+    src: "http://cdn.valpapers.tech/assets/4.webp",
     alt: "Clean & Fluid Design",
   },
   {
-    src: "http://cdn.valpapers.tech/assets/5.png",
+    src: "http://cdn.valpapers.tech/assets/5.webp",
     alt: "High Quality Wallpapers",
   },
 ];
