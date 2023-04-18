@@ -9,8 +9,14 @@ const nextConfig = {
         port: "",
         pathname: "/assets/**",
       },
+      {
+        protocol: "https",
+        hostname: "res.cloudinary.com",
+        port: "",
+        pathname: "/*",
+      },
     ],
-    domains: ["cdn.valpapers.tech"],
+    domains: ["cdn.valpapers.tech", "res.cloudinary.com"],
   },
 };
 
