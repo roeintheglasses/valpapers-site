@@ -41,15 +41,13 @@ function Wallpapers({ images }) {
       </Head>
       <main className={styles.main}>
         <div className={styles.wallpapers}>
-          <p>
-            <code className={styles.code}>valpapers.tech</code>
-          </p>
+          <Link href="/">
+            <p>
+              <code className={styles.code}>valpapers.tech</code>
+            </p>
+          </Link>
           <div>
-            <a
-              href="https://valpapers.tech"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <Link href="/">
               <Image
                 src="/Valpapers.svg"
                 alt="Valpapers Logo"
@@ -58,7 +56,7 @@ function Wallpapers({ images }) {
                 height={70}
                 priority
               />
-            </a>
+            </Link>
             <a
               href="https://github.com/roeintheglasses"
               className={styles.card}

@@ -9,6 +9,7 @@ import localFont from "next/font/local";
 
 import styles from "@/styles/Home.module.css";
 import "lightbox.js-react/dist/index.css";
+import Link from "next/link";
 
 // Font files can be colocated inside of `pages`
 const valFont = localFont({ src: "./font.ttf" });
@@ -51,15 +52,13 @@ export default function Home() {
       </Head>
       <main className={styles.main}>
         <div className={styles.description}>
-          <p>
-            <code className={styles.code}>valpapers.tech</code>
-          </p>
+          <Link href="/">
+            <p>
+              <code className={styles.code}>valpapers.tech</code>
+            </p>
+          </Link>
           <div>
-            <a
-              href="https://valpapers.tech"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <Link href="/">
               <Image
                 src="/Valpapers.svg"
                 alt="Valpapers Logo"
@@ -68,7 +67,7 @@ export default function Home() {
                 height={70}
                 priority
               />
-            </a>
+            </Link>
             <a
               href="https://github.com/roeintheglasses"
               className={styles.card}
@@ -90,16 +89,24 @@ export default function Home() {
           <h4 className={inter.className} style={{ fontSize: "1rem" }}>
             AI-Upscaled Wallpapers
           </h4>
-          <a
-            href="https://play.google.com/store/apps/details?id=com.valpapers"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <p className={inter.className}>
-              Download <span>-&gt;</span>
-            </p>
-          </a>
+          <div className="flex items-center justify-center">
+            <a
+              href="https://play.google.com/store/apps/details?id=com.valpapers"
+              className={styles.card}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <p className={inter.className}>
+                Download <span>-&gt;</span>
+              </p>
+            </a>
+            <Link href="/wallpapers" className={styles.card}>
+              <p className={inter.className}>
+                Try Online <span>-&gt;</span>
+              </p>
+            </Link>
+          </div>
+
           <div>
             <SlideshowLightbox
               lightboxIdentifier="lightbox1"
@@ -142,19 +149,14 @@ export default function Home() {
               Get a gist of the dev behind the crazy "AI" upscaling
             </p>
           </a> */}
-          <a
-            href="/privacy-policy"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <Link href="/privacy-policy" className={styles.card}>
             <h2 className={inter.className}>
               Privacy Policy <span>-&gt;</span>
             </h2>
             <p className={inter.className}>
               Yup, we have one of those too. Read it here. ( ͡° ͜ʖ ͡°)
             </p>
-          </a>
+          </Link>
           <a
             href="https://play.google.com/store/apps/details?id=com.valpapers"
             className={styles.card}
@@ -168,6 +170,18 @@ export default function Home() {
               Because we both know, one download link is not enough.
             </p>
           </a>
+          <Link
+            href="/wallpapers"
+            className={styles.card}
+            rel="noopener noreferrer"
+          >
+            <h2 className={inter.className}>
+              Try Online <span>-&gt;</span>
+            </h2>
+            <p className={inter.className}>
+              As weird as it sound, Yes. You can actually do that here.
+            </p>
+          </Link>
         </div>
 
         <footer className={styles.footer}>

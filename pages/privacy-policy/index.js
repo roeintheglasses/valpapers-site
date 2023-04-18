@@ -3,7 +3,7 @@ import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "next/font/google";
 import localFont from "next/font/local";
-
+import Link from "next/link";
 import styles from "@/styles/Home.module.css";
 // pages/_app.js
 
@@ -16,24 +16,22 @@ export default function PrivacyPolicy() {
     <>
       <main className={styles.main}>
         <div className={styles.description}>
-          <p>
-            <code className={styles.code}>valpapers.tech</code>
-          </p>
+          <Link href="/">
+            <p>
+              <code className={styles.code}>valpapers.tech</code>
+            </p>
+          </Link>
           <div>
-            <a
-              href="https://valpapers.tech"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <Link href="/">
               <Image
                 src="/Valpapers.svg"
                 alt="Valpapers Logo"
                 className={styles.vercelLogo}
-                width={50}
-                height={50}
+                width={70}
+                height={70}
                 priority
               />
-            </a>
+            </Link>
           </div>
         </div>
 
